@@ -1,0 +1,39 @@
+{
+  "name": "hello-future-world-js",
+  "version": "0.2.1",
+  "description": "Hello World sequences for Hedera services - core, HCS, HTS, HSCS",
+  "main": "init.js",
+  "scripts": {
+    "update-from-base-template": "npx github:hedera-dev/hedera-tutorial-demo-base-template update",
+    "scaffold-task-from-base-template": "npx github:hedera-dev/hedera-tutorial-demo-base-template scaffold-task",
+    "format": "prettier . --write --cache",
+    "test": "echo 'no tests yet'",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hedera-dev/hedera-tutorial-demo-base-template.git"
+  },
+  "keywords": [
+    "hedera",
+    "gitpod",
+    "template"
+  ],
+  "author": "bguiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hedera-dev/hedera-tutorial-demo-base-template/issues"
+  },
+  "homepage": "https://github.com/hedera-dev/hedera-tutorial-demo-base-template#readme",
+  "dependencies": {
+    "@hashgraph/sdk": "^2.60.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "solc": "^0.8.28"
+  },
+  "devDependencies": {
+    "husky": "9.1.4",
+    "prettier": "3.3.3"
+  }
+}

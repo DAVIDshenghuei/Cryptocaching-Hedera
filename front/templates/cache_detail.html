@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">{{ cache.name }}</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">{{ cache.description }}</p>
+                <div id="map" style="height: 300px;"></div>
+                {% if current_user.is_authenticated and not already_verified %}
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('verify_cache', cache_id=cache.id) }}" class="btn btn-primary">Verify Cache</a>
+                </div>
+                {% elif already_verified %}
+                <div class="alert alert-info mt-4">
+                    You have already verified this cache.
+                </div>
+                {% else %}
+                <div class="alert alert-warning mt-4">
+                    Please log in to verify this cache.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var map = L.map('map').setView([{{ cache.latitude }}, {{ cache.longitude }}], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([{{ cache.latitude }}, {{ cache.longitude }}])
+        .addTo(map)
+        .bindPopup('{{ cache.name }}');
+</script>
+{% endblock %} 

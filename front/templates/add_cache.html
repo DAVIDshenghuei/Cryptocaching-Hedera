@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Add New Cache</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Cache Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input type="number" step="any" class="form-control" id="latitude" name="latitude" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input type="number" step="any" class="form-control" id="longitude" name="longitude" required>
+                    </div>
+
+                    <h4 class="mt-4">Tests</h4>
+                    {% for i in range(1, 4) %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>Test {{ i }}</h5>
+                            <div class="mb-3">
+                                <label for="question{{ i }}" class="form-label">Question</label>
+                                <input type="text" class="form-control" id="question{{ i }}" name="question{{ i }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Answer Options</label>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">A</span>
+                                    <input type="text" class="form-control" name="option{{ i }}_a" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">B</span>
+                                    <input type="text" class="form-control" name="option{{ i }}_b" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">C</span>
+                                    <input type="text" class="form-control" name="option{{ i }}_c" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="answer{{ i }}" class="form-label">Correct Answer</label>
+                                <select class="form-control" id="answer{{ i }}" name="answer{{ i }}" required>
+                                    <option value="a">A</option>
+                                    <option value="b">B</option>
+                                    <option value="c">C</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div id="map" class="mb-3" style="height: 400px;"></div>
+                    <button type="submit" class="btn btn-primary w-100">Add Cache</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var map = L.map('map').setView([46.5197, 6.6323], 13);
+    var marker = null;
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    map.on('click', function(e) {
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker(e.latlng).addTo(map);
+        document.getElementById('latitude').value = e.latlng.lat.toFixed(6);
+        document.getElementById('longitude').value = e.latlng.lng.toFixed(6);
+    });
+</script>
+{% endblock %}

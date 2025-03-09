@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="map"></div>
+<div id="cache-data" data-caches='{{ caches|tojson|safe }}'></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    console.log('Map initialization starting...');
+    var map = L.map('map').setView([46.5197, 6.6323], 13);
+    console.log('Map created');
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    console.log('Map tiles added');
+
+    var CACHE_DATA = JSON.parse(document.getElementById('cache-data').dataset.caches);
+    console.log('Cache data:', CACHE_DATA);
+
+    if (Array.isArray(CACHE_DATA)) {
+        console.log('Number of caches:', CACHE_DATA.length);
+
+        CACHE_DATA.forEach(function(cache) {
+            console.log('Adding marker for cache:', cache);
+            var marker = L.marker([parseFloat(cache.latitude), parseFloat(cache.longitude)])
+                .addTo(map)
+                .bindPopup('<a href="/cache/' + cache.id + '">' + cache.name + '</a>');
+            console.log('Marker added for cache:', cache.name);
+        });
+        console.log('All markers added to map');
+    } else {
+        console.error('Cache data is not an array:', typeof CACHE_DATA);
+    }
+</script>
+{% endblock %}

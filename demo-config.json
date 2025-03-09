@@ -1,0 +1,117 @@
+{
+  "tokens": [
+    {
+      "id": {
+        "shard": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "realm": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "num": {
+          "low": 5674933,
+          "high": 0,
+          "unsigned": false
+        },
+        "_checksum": null
+      },
+      "address": "00000000000000000000000000000000005697b5"
+    },
+    {
+      "id": {
+        "shard": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "realm": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "num": {
+          "low": 5674934,
+          "high": 0,
+          "unsigned": false
+        },
+        "_checksum": null
+      },
+      "address": "00000000000000000000000000000000005697b6"
+    },
+    {
+      "id": {
+        "shard": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "realm": {
+          "low": 0,
+          "high": 0,
+          "unsigned": false
+        },
+        "num": {
+          "low": 5674935,
+          "high": 0,
+          "unsigned": false
+        },
+        "_checksum": null
+      },
+      "address": "00000000000000000000000000000000005697b7"
+    }
+  ],
+  "nfts": [
+    {
+      "serialNumber": {
+        "low": 1,
+        "high": 0,
+        "unsigned": false
+      },
+      "metadata": "SECRET_TOKEN_0.0.5674933"
+    },
+    {
+      "serialNumber": {
+        "low": 1,
+        "high": 0,
+        "unsigned": false
+      },
+      "metadata": "SECRET_TOKEN_0.0.5674934"
+    },
+    {
+      "serialNumber": {
+        "low": 1,
+        "high": 0,
+        "unsigned": false
+      },
+      "metadata": "SECRET_TOKEN_0.0.5674935"
+    }
+  ],
+  "contractId": {
+    "shard": {
+      "low": 0,
+      "high": 0,
+      "unsigned": false
+    },
+    "realm": {
+      "low": 0,
+      "high": 0,
+      "unsigned": false
+    },
+    "num": {
+      "low": 5674937,
+      "high": 0,
+      "unsigned": false
+    },
+    "evmAddress": null,
+    "_checksum": null
+  },
+  "secrets": [
+    "SECRET_1",
+    "SECRET_2",
+    "SECRET_3"
+  ]
+}
