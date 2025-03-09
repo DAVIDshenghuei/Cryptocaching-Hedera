@@ -1,4 +1,4 @@
-# Geocaching Web Application
+# Geocaching Web Application - Cryptocaching-Hedera
 
 A web application for geocaching that allows administrators to create cache locations and users to verify their visits to these locations.
 
@@ -13,13 +13,16 @@ A web application for geocaching that allows administrators to create cache loca
 - Canvas integration for drawing graphics
 - 
 ## Setup the backend part
-
+```
 npm install
 npm install express cor
+```
 
 # Run Node.js Server 
 
+```
 node server.js
+```
 
 ## Setup the webpage in front file
 
