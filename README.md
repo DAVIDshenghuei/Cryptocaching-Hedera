@@ -7,9 +7,31 @@ A web application for geocaching that allows administrators to create cache loca
 - Interactive map with cache locations
 - User registration and authentication
 - Admin interface for adding new cache locations
-- Cache verification system with random success/failure
+- Cache verification system with random success
 - One-time verification per cache location per user
 - Integration with Node.js server to execute claims
+- Canvas integration for drawing graphics
+- 
+## Setup the backend part
+
+npm install
+npm install express cor
+
+# Run Node.js Server 
+
+node server.js
+
+## Setup the webpage in front file
+
+### 1. Install Flask and Dependencies
+
+First, create a virtual environment and install required dependencies:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
 
 ## Setup
 
